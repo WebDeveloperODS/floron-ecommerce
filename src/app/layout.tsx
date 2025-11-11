@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./ui/header";
+import ReduxProvider from "@/store/provider";
 
 export const metadata: Metadata = {
   title: "Floron - Glow, Grow, Naturally",
@@ -18,8 +19,10 @@ export default function RootLayout({
       <body
         className={`flex flex-col min-h-screen items-center justify-start`}
       >
-        <Header />
-        {children}
+        <ReduxProvider>
+          <Header />
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   );
